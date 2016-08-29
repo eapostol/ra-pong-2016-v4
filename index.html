@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Pong</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #game {
+
+            height: 256px;
+            width: 512px;
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <div>
+        <h1>Pong<h1>
+            <canvas id="game"></canvas>
+    </div>
+</div>
+<script>
+    // draw a pong game
+    // use the following for help
 
+    const canvas = document.getElementById('game');
+    const context = canvas.getContext('2d');
+
+    context.fillStyle = 'yellow';
+    // fillRect(x1, y1, x2, y2)
+    context.fillRect(10, 10, 50, 50);
+
+    context.fillStyle = 'red';
+    context.beginPath();
+    // arc(x, y, radius, 0, Pi* 2, true)
+    context.arc(100, 100, 5, 0, Math.PI*2, true);
+    context.fill();
+</script>
 </body>
 </html>
