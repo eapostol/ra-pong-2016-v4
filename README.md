@@ -20,9 +20,11 @@ Steps:
 directory name as the title of the repo.
 3. npm init. Fill out the appropriate information for the project.
 4. Use NPM to install the following modules (with --save-dev option)
+
+
+
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.0"
-    
+    "webpack-dev-server": "^1.15.0"    
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.14.0",
@@ -36,6 +38,7 @@ directory name as the title of the repo.
 Webpack is really just about configuring a build for your file,
 writtin in Javascript
    
+```
 /**
  * Created by Edward_J_Apostol on 2016-08-25.
  */
@@ -84,6 +87,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ]
 };
+```
 
 7. Create the index.html page as described in the slides for the pong project.
 8. Create the Game.js and index.js - Game.js is using classes as a test
