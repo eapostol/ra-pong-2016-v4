@@ -1,6 +1,19 @@
 # ra-pong-2016-v4
 A Simple Pong Game, created with ES6 Javascript.
 
+
+If you were going to set up your pong game automatically, all you would need to 
+do is : 
+1. create a repository on your own github account.
+2. create a local directory to host this new repository
+3. clone the new remote repo to this new local directory
+4. download the zip file of this repo.
+4. unzip the contents to your new local directory
+5. git push the contents
+6. Continue to build.
+
+
+
 Steps:
 1. Create your Git Repo for the project
 2. Create a local directory for the project, usually with the same
