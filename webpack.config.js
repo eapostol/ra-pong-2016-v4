@@ -1,18 +1,24 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require("path");
+const resolve = path.resolve;
+const src = resolve(__dirname, "src");
+const dist = resolve(__dirname, "dist");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
-const isProduction = process.env.NODE_ENV == "production";
+const isProduction = process.env.NODE_ENV === "production";
 
 const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config = {
+  mode: "development",
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: dist,
+    filename: "bundle.js"
   },
   devServer: {
     open: true,
@@ -33,6 +39,11 @@ const config = {
       {
         test: /\.(js|jsx)$/i,
         loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"]
+        },
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, "src"),
       },
       {
         test: /\.s[ac]ss$/i,
@@ -40,6 +51,8 @@ const config = {
       },
       {
         test: /\.css$/i,
+        include: path.resolve(__dirname, "src"),
+        exclude: /node_modules/,
         use: [stylesHandler, "css-loader", "postcss-loader"],
       },
       {
@@ -56,7 +69,6 @@ const config = {
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
-
     config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
   } else {
     config.mode = "development";
