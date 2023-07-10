@@ -10,7 +10,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
-
 const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config = {
@@ -18,15 +17,20 @@ const config = {
   entry: "./src/index.js",
   output: {
     path: dist,
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: "/"
   },
   devServer: {
     open: true,
     host: "localhost",
+    port: 8083,
+    hot:'only',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: "./src/index.html",
+      filename: "index.html",
+      favicon: "./src/images/favicon/favicon.ico",
     }),
 
     new MiniCssExtractPlugin(),
@@ -57,7 +61,13 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset",
+        type: "asset/resource",
+        use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+                outputPath: 'images',
+        }}],
       },
 
       // Add your rules for custom modules here

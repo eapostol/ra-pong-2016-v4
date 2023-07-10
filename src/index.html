@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8" />
 	    <title>Pong 2023 v5.0</title>
-	    <style>
+        <!-- Insert favicon link here -->
+ 	    <style>
 	        .container {
 	            display: flex;
 	            align-items: center;
@@ -21,7 +22,7 @@
     <body>
 <div class="container">
     <div>
-        <h1>Pong</h1>
+        <h1>Pong V5.0</h1>
             <canvas id="game"></canvas>
     </div>
 </div>
@@ -44,7 +45,7 @@
 	</script>
     <script>
       // required for PWA support
-        if ("serviceWorker" in navigator) {
+/*        if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
                 navigator.serviceWorker
                     .register("service-worker.js")
@@ -55,8 +56,7 @@
                         console.error("Service Worker registration failed: ", registrationError);
                     });
             });
-        }
+        }*/
     </script>
-    <script src="./dist/bundle.js"></script>
     </body>
 </html>
