@@ -10,23 +10,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
+    "build:dev": "webpack --mode=development --node-env=development",
     "build:prod": "webpack --mode=production --node-env=production",
-    "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "watch": "npx webpack --watch",
+    "serve": "npx webpack serve"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eapostol/ra-pong-2016-v4.git"
   },
   "keywords": [
-    "pong",
-    "5.0",
+    "pong v5.0",
     "red academy",
     "es6",
     "ecmascript",
     "ES2016",
-    "javascript"
+    "javascript",
+    "webpack",
+    "babel"
   ],
   "author": "Edward J. Apostol",
   "license": "ISC",
